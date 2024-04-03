@@ -13,7 +13,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run tests using the built Docker image
-                sh 'docker run --rm my-docker-image dotnet test'
+                sh 'docker run -it my-docker-image dotnet test'
             }
         }
     }
