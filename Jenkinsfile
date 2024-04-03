@@ -3,11 +3,15 @@ pipeline {
 
     stages {
         stage('Build') {
-            git 'https://github.com/matthancantrell/PlaywrightTesting.git'
-            sh 'docker build -t playwright docker .'
+            steps {
+                git 'https://github.com/matthancantrell/PlaywrightTesting.git'
+                sh 'docker build -t playwright docker .'
+            }
         }
         stage('Test') {
-            sh 'docker run -it playwright-docker dotnet test'
+            steps {
+                sh 'docker run -it playwright-docker dotnet test'
+            }
         }
     }
 }
