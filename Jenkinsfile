@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "${env.WORKSPACE}"
+                sh "ls > files"
             }
         }
     }
