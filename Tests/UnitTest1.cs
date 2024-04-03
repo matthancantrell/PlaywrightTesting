@@ -4,7 +4,7 @@ using Microsoft.Playwright;
 using Microsoft.Playwright.MSTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace PlaywrightTests;
+namespace PlaywrightTests.Tests;
 
 [TestClass]
 public class UnitTest1 : PageTest
