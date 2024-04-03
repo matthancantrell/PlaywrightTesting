@@ -1,13 +1,7 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from your Git repository
-                checkout scm
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
