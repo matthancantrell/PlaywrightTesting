@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/matthancantrell/PlaywrightTesting.git'
-                sh 'docker build -t playwright docker .'
+                sh 'docker build -t playwright-docker .'
             }
         }
         stage('Test') {
