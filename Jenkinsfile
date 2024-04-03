@@ -1,35 +1,13 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
 
     stages {
-
-    //     stage('Build Docker Image') {
-    //         steps {
-    //             // Build the Docker image using the Dockerfile in your repository
-    //             sh 'docker build -t my-docker-image .'
-    //         }
-    //     }
-
-    //     stage('Run Tests') {
-    //         steps {
-    //             // Run tests using the built Docker image
-    //             sh 'docker run -it my-docker-image dotnet test'
-    //         }
-    //     }
-    // }
-
-            stage('Run Tests') {
-            steps {
-                // Run tests using the built Docker image
-                sh 'dotnet test'
-            }
+        stage('Build') {
+            git 'https://github.com/matthancantrell/PlaywrightTesting.git'
+            sh 'docker build -t playwright docker .'
         }
-    }
-
-    post {
-        always {
-            // Clean up any temporary files or resources
-            deleteDir()
+        stage('Test') {
+            sh 'docker run -it playwright-docker dotnet test'
         }
     }
 }
