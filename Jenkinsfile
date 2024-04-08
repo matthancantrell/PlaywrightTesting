@@ -13,7 +13,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    docker.image('playwright-docker').run('-p 8080:80')
+                    docker.image('playwright-docker').run('-p 8081:80')
                 }
             }
         }
