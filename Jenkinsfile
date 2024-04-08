@@ -1,12 +1,20 @@
 pipeline {
-    agent {
-        dockerfile true
-    }
-
+    agent any
+    
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Building...'
+                script {
+                    docker.build('playwright-docker', '.')
+                }
+            }
+        }
+        
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    docker.image('playwright-docker').run('-p 8080:80')
+                }
             }
         }
     }
