@@ -1,3 +1,8 @@
+@Library('cicd-jenkins-shared-libraries@v1.15.4') _
+
+def buildAgentDockerfile='cicd/docker/Dockerfile'
+def playwrightDockerImage
+
 pipeline {
     agent any
     
